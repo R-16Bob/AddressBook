@@ -12,36 +12,36 @@ public class TestFrm extends JFrame implements ActionListener {
 	PersonDao dao;
 	List<Person> plist;
 	JLabel label[] = new JLabel[6];
-	String lname[] = {"±àºÅ","ĞÕÃû","ĞÔ±ğ","µç»°","µØÖ·","Email"};//±êÇ©Óë±íÍ·Ãû
+	String lname[] = {"ç¼–å·","å§“å","æ€§åˆ«","ç”µè¯","åœ°å€","Email"};//æ ‡ç­¾ä¸è¡¨å¤´å
 	JButton  button[] = new JButton[5];
-	String bname[] = {"²éÑ¯","Ôö¼Ó","É¾³ı","ĞŞ¸Ä","ÏÔÊ¾ËùÓĞ"};
+	String bname[] = {"æŸ¥è¯¢","å¢åŠ ","åˆ é™¤","ä¿®æ”¹","æ˜¾ç¤ºæ‰€æœ‰"};
 	JTextField textField[] = new JTextField[6];	
 	JPanel p[] = new JPanel[3];
 	JPanel basePanel;
 	Box b[] = new Box[3];
 	Box box;
 	JTable table;
-	DefaultTableModel model; //tableµÄÄ£ĞÍ
-	//¹¹Ôìº¯Êı
+	DefaultTableModel model; //tableçš„æ¨¡å‹
+	//æ„é€ å‡½æ•°
 	public TestFrm(String title) {  
 		dao=new PersonDao();
-		for(int i=0;i<3;i++) {  //³õÊ¼»¯Panel
+		for(int i=0;i<3;i++) {  //åˆå§‹åŒ–Panel
 			p[i] = new JPanel();
 		}
-		for(int i=0;i<6;i++) {  //³õÊ¼»¯±êÇ©
+		for(int i=0;i<6;i++) {  //åˆå§‹åŒ–æ ‡ç­¾
 			label[i]=new JLabel(lname[i]);
 		}
-		for(int i=0;i<6;i++) {  //³õÊ¼»¯ÎÄ±¾¿ò
+		for(int i=0;i<6;i++) {  //åˆå§‹åŒ–æ–‡æœ¬æ¡†
 			textField[i] = new JTextField(15);
 			textField[i].addActionListener(this);
 		}
 
-		for(int i=0;i<5;i++) {  //³õÊ¼»¯°´Å¥
+		for(int i=0;i<5;i++) {  //åˆå§‹åŒ–æŒ‰é’®
 			button[i] = new JButton(bname[i]);
 			button[i].addActionListener(this);
 			p[1].add(button[i]);
 		}
-		//³õÊ¼»¯Box
+		//åˆå§‹åŒ–Box
 		box = Box.createVerticalBox();
 		for(int i=0;i<3;i++) {
 			b[i] = Box.createHorizontalBox();
@@ -57,25 +57,25 @@ public class TestFrm extends JFrame implements ActionListener {
 		box.add(b[1]);
 		box.add(b[2]);
 		p[0].add(box);
-		//³õÊ¼»¯table
+		//åˆå§‹åŒ–table
 		createTable();
-		table.setPreferredScrollableViewportSize(new Dimension(650, 100));  //ÉèÖÃ¹ö¶¯Ãæ°å´óĞ¡
-		JScrollPane scrollPane = new JScrollPane(table); //´´½¨¹ö¶¯Ãæ°å
+		table.setPreferredScrollableViewportSize(new Dimension(650, 100));  //è®¾ç½®æ»šåŠ¨é¢æ¿å¤§å°
+		JScrollPane scrollPane = new JScrollPane(table); //åˆ›å»ºæ»šåŠ¨é¢æ¿
 		p[2].add(scrollPane);
-		//ÉèÖÃ²¼¾Ö
+		//è®¾ç½®å¸ƒå±€
 		basePanel = new JPanel(new BorderLayout());
 		basePanel.add(p[0],BorderLayout.NORTH);
 		basePanel.add(p[1],BorderLayout.CENTER);
 		basePanel.add(p[2],BorderLayout.SOUTH);
 		setContentPane(basePanel);
 		validate();
-		//ÉèÖÃ´°¿Ú
+		//è®¾ç½®çª—å£
 		setTitle(title);
 		setBounds(100,100,700,300);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
 	}
-	public void createTable() {  //¸ù¾İÊı¾İ¿âÊı¾İÉú³Étable
+	public void createTable() {  //æ ¹æ®æ•°æ®åº“æ•°æ®ç”Ÿæˆtable
 		List<Person> ps=dao.queryAllPerson();
 		Object[][] obj= new Object[ps.size()][6]; 
 		for(int i=0;i<ps.size();i++) {
@@ -95,7 +95,7 @@ public class TestFrm extends JFrame implements ActionListener {
 			}
 		}
 	}
-	//µã»÷²éÑ¯¡¢ÏÔÊ¾ËùÓĞÊ±ÒÀ¾İplistÖĞµÄÄÚÈİ¸üĞÂtable
+	//ç‚¹å‡»æŸ¥è¯¢ã€æ˜¾ç¤ºæ‰€æœ‰æ—¶ä¾æ®plistä¸­çš„å†…å®¹æ›´æ–°table
 	public void updateTable() {
 		int row =model.getRowCount();
 		for(int i=0;i<row;i++) {
@@ -117,16 +117,16 @@ public class TestFrm extends JFrame implements ActionListener {
 			}
 		}
 	}
-	//ÊÂ¼ş
+	//äº‹ä»¶
 	public void actionPerformed(ActionEvent e) {  
-		//°´ÏÂ²éÑ¯£¬TableÀïÏÔÊ¾ÎÄ±¾¿òÃû×Ö¶ÔÓ¦µÄ¼ÇÂ¼
+		//æŒ‰ä¸‹æŸ¥è¯¢ï¼ŒTableé‡Œæ˜¾ç¤ºæ–‡æœ¬æ¡†åå­—å¯¹åº”çš„è®°å½•
 		if(e.getSource()==button[0]) {  
 			String name=textField[1].getText();
 			plist=dao.queryPersonByName(name);
 			updateTable();
 		}
 		else if(e.getSource()==button[1]) {
-			//°´ÏÂÔö¼Ó
+			//æŒ‰ä¸‹å¢åŠ 
 			String add[]=new String[6];
 			for(int i=0;i<6;i++) {
 				add[i]=textField[i].getText();
@@ -137,14 +137,14 @@ public class TestFrm extends JFrame implements ActionListener {
 			updateTable();
 		}
 		else if(e.getSource()==button[2]) {
-			//°´ÏÂÉ¾³ı,¸ù¾İ±àºÅÉ¾³ı
+			//æŒ‰ä¸‹åˆ é™¤,æ ¹æ®ç¼–å·åˆ é™¤
 			int pid=Integer.parseInt(textField[0].getText());
 			dao.deletePersonByID(pid);
 			plist=dao.queryAllPerson();
 			updateTable();
 		}
 		else if(e.getSource()==button[3]) {
-			//°´ÏÂĞŞ¸Ä£¬¸ù¾İÎÄ±¾¿òÄÚÈİĞŞ¸Ä±àºÅ¶ÔÓ¦µÄÊı¾İ
+			//æŒ‰ä¸‹ä¿®æ”¹ï¼Œæ ¹æ®æ–‡æœ¬æ¡†å†…å®¹ä¿®æ”¹ç¼–å·å¯¹åº”çš„æ•°æ®
 			int pid=Integer.parseInt(textField[0].getText());
 			String up[]=new String[6];
 			for(int i=0;i<6;i++) {
@@ -164,7 +164,7 @@ public class TestFrm extends JFrame implements ActionListener {
 		}
 }
 	public static void main(String[] args) {		
-		TestFrm test=new TestFrm("ÎÒµÄÍ¨Ñ¶Â¼");
+		TestFrm test=new TestFrm("æˆ‘çš„é€šè®¯å½•");
 	}
 
 }

@@ -1,11 +1,11 @@
 package pojo;
 
 public class Person {
-    private int    pid;  //编号
-	private String name;		// 姓名 
-	private String sex;		// 性别 
-	private String tel;		// 电话 
-	private String address;	// 地址 
+    private int    pid;  //缂栧彿
+	private String name;		// 濮撳悕 
+	private String sex;		// 鎬у埆 
+	private String tel;		// 鐢佃瘽 
+	private String address;	// 鍦板潃 
 	private String email;		//email 
 	
 	public Person() {

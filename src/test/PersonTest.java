@@ -9,24 +9,24 @@ import pojo.Person;
 public class PersonTest {
 	public static void main(String[] args) {
 		PersonDao dao=new PersonDao();
-		//Ôö¼Ó¼ÇÂ¼
-		Person p = new Person(200, "ÀîÃ÷", "ÄĞ", "023344", "º¼Öİ", "liming@163.com");
+		//å¢åŠ è®°å½•
+		Person p = new Person(200, "ææ˜", "ç”·", "023344", "æ­å·", "liming@163.com");
 		dao.addPerson(p);
-		//°´ĞÕÃû²é
-		List<Person> list=dao.queryPersonByName("ÀîÃ÷");
-		System.out.println("ĞÕÃûÎªÀîÃ÷µÄ¼ÇÂ¼£º");
+		//æŒ‰å§“åæŸ¥
+		List<Person> list=dao.queryPersonByName("ææ˜");
+		System.out.println("å§“åä¸ºææ˜çš„è®°å½•ï¼š");
 		for(int i=0;i<list.size();i++) {
 			Person p2 = list.get(i);
 			System.out.printf("%-5d%-10s%-6s%-10s%-10s%-22s\n", p2.getPid(),p2.getName(),p2.getSex(),
 					p2.getTel(),p2.getAddress(),p2.getEmail());
 		}
-		//É¾³ı¼ÇÂ¼
+		//åˆ é™¤è®°å½•
 		dao.deletePersonByID(200);
-		//ĞŞ¸ÄÕÅ¾üĞÅÏ¢
-		dao.updateNameByID(100, "ÕÂ¾ù");
-		dao.updateSexByID(100, "Å®");
+		//ä¿®æ”¹å¼ å†›ä¿¡æ¯
+		dao.updateNameByID(100, "ç« å‡");
+		dao.updateSexByID(100, "å¥³");
 		dao.updateTelByID(100, "031111");
-		dao.updateAddressByID(100, "±±¾©");
+		dao.updateAddressByID(100, "åŒ—äº¬");
 		dao.updateEmailByID(100, "junzhang@gmail.com");
 	}
 

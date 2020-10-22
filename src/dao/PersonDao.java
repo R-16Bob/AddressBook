@@ -6,19 +6,19 @@ import java.util.List;
 import dbutil.SQLHelper;
 import pojo.Person;
 public class PersonDao {
-	// Ìí¼Ó ÁªÏµÈË
+	// æ·»åŠ  è”ç³»äºº
 	public void addPerson(Person p){ 
 		String sql="insert into persons values("+p.getPid()+",'"+
 	p.getName()+"','"+p.getSex()+"','"+p.getTel()+"','"+p.getAddress()
 	+"','"+p.getEmail()+"')";
         SQLHelper. executeUpdate(sql);
 	}	 
-	//Í¨¹ıÈËµÄ±àºÅÉ¾³ıÁªÏµÈË
+	//é€šè¿‡äººçš„ç¼–å·åˆ é™¤è”ç³»äºº
 	public void deletePersonByID(int pid){ 		
 		String sql="delete from persons where pid="+pid;
         SQLHelper. executeUpdate(sql);
 	}
-	//Í¨¹ıÈËµÄĞÕÃû²éÕÒÁªÏµÈË£¬·µ»ØÒ»¸ö¼¯ºÏ
+	//é€šè¿‡äººçš„å§“åæŸ¥æ‰¾è”ç³»äººï¼Œè¿”å›ä¸€ä¸ªé›†åˆ
 	public List<Person> queryPersonByName(String name){ 
 		List<Person> list=new ArrayList<Person>();
 		String sql="select * from persons where name='"+name+"'";
@@ -40,32 +40,32 @@ public class PersonDao {
 		SQLHelper.closeConnection();
 		return list;		
 		}
-	//ĞŞ¸ÄÁªÏµÈËĞÕÃû
+	//ä¿®æ”¹è”ç³»äººå§“å
 	public void updateNameByID(int pid,String newName){
 		String sql="update persons set name='"+newName+"' where pid="+pid;
 		SQLHelper.executeUpdate(sql);
 	}
-	//ĞŞ¸ÄÁªÏµÈËĞÔ±ğ
+	//ä¿®æ”¹è”ç³»äººæ€§åˆ«
 	public void updateSexByID(int pid,String newSex){
 		String sql="update persons set sex='"+newSex+"' where pid="+pid;
 		SQLHelper.executeUpdate(sql);
 	}
-	//ĞŞ¸ÄÁªÏµÈËµç»°
+	//ä¿®æ”¹è”ç³»äººç”µè¯
 	public void updateTelByID(int pid,String newTel){
 		String sql="update persons set tel='"+newTel+"' where pid="+pid;
 		SQLHelper.executeUpdate(sql);
 	}
-	//ĞŞ¸ÄÁªÏµÈËµØÖ·
+	//ä¿®æ”¹è”ç³»äººåœ°å€
 	public void updateAddressByID(int pid,String newAdd){
 		String sql="update persons set address='"+newAdd+"' where pid="+pid;
 		SQLHelper.executeUpdate(sql);
 	}		
-	//ĞŞ¸ÄÁªÏµÈËĞÔ±ğ
+	//ä¿®æ”¹è”ç³»äººæ€§åˆ«
 	public void updateEmailByID(int pid,String newEmail){
 		String sql="update persons set email='"+newEmail+"' where pid="+pid;
 		SQLHelper.executeUpdate(sql);
 	}
-	public List<Person> queryAllPerson(){  //²éÑ¯È«²¿¼ÇÂ¼
+	public List<Person> queryAllPerson(){  //æŸ¥è¯¢å…¨éƒ¨è®°å½•
 		List<Person> list = new ArrayList<Person>();
 		String sql="select * from persons ";
 		ResultSet rs=SQLHelper.executeQuery(sql);

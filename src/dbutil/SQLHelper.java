@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class SQLHelper {
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String url="jdbc:mysql://localhost:3306/mydb",user="root",pwd="xxx"; 
-	//pwd¸ÄÎª×Ô¼ºµÄÃÜÂë
+	//pwdæ”¹ä¸ºè‡ªå·±çš„å¯†ç 
 	private static Connection conn=null;
 	static {
 		try {
