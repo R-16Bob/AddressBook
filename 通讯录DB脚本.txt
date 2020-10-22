@@ -1,0 +1,47 @@
+create database if not exists mydb;
+use mydb;
+
+create table persons(
+  pid int primary key,
+  name varchar(20),
+  sex char(2),
+  tel varchar(18),
+  address varchar(30),
+  email varchar(20)
+);
+
+insert into persons values(100,'张军','男','021111','上海','zhang@126.com');
+insert into persons values(101,'李红','女','021112','上海','lihong@126.com');
+insert into persons values(102,'赵思','男','021113','上海','zhaosi@126.com');
+insert into persons values(103,'李进','男','021114','上海','lijin@126.com');
+
+update persons set address='北京' where pid=100;
+
+##################################
+JTable
+DefaultTableModel model=table.getModel();  //获取模型
+model.setRowCount(2)  //添加两行
+model.setColumnCount(3);  //添加两列
+
+model.setValueAt("值",0,0);  //表中设置(0,0)的值
+table.setValueAt("值",0,0);  //效果相同
+table.getValueAt(int row, int column)  //获取单元格的值
+
+model.addColumn/Row();  //添加更多列或行
+model.removeRow(int row)  //删除一行
+
+//设置列标签
+Object[] columnHeaderLabels = new Object[]{"Name", "DOB", "Gender"};
+ model.setColumnIdentifiers(columnHeaderLabels);
+
+//构造函数：
+JTable table  = new JTable(2, 3);  //两行三列
+JTable(Object[][] rowData,   Object[] columnNames)
+JTable(Vector rowData,   Vector   columnNames)
+
+public interface  TableModel{
+    public int  getRowCount();
+    public int  getColumnCount();
+...}
+//从model可以获取行和列数
+  
