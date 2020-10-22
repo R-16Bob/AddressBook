@@ -1,2 +1,3 @@
 # AddressBook
  一个JAVA数据库应用，实现电子通讯录
+使用前请把SQLHelper中pwd改为自己数据库的密码
